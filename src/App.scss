@@ -1,7 +1,9 @@
 @import "~bootstrap/scss/bootstrap-reboot";
 @import "~bootstrap/scss/utilities/display";
+@import 'scss/variables';
+@import 'scss/typography';
 
 .container{
-  background-color: #EDFAFB;
+  background-color: $light-grayish-cyan;
   padding: 1rem;
 }

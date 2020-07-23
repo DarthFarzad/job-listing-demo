@@ -1,0 +1,99 @@
+@import "../../scss/variables";
+.card{
+  border-radius: 5px;
+  padding: 16px;
+  padding-top: 25px;
+  margin-top: 25px;
+  position: relative;
+  background-color: #fff;
+
+  //breakpoint change layout
+
+  &[data-featured="true"]{
+    border-left-color: $desaturated-dark-cyan;
+    border-left-width: 5px;
+    border-left-style: solid;
+  }
+  img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 16px;
+    //breakpoint change all styles
+  }
+  &__heading{
+    font-size: 1rem;
+    font-weight: 700;
+    color: $desaturated-dark-cyan;
+    text-transform: capitalize; //fallback for stupid text
+  }
+
+  &__information{
+    color: $dark-greyish-cyan;
+    list-style: none;
+    padding: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $dark-greyish-cyan;
+
+    li{
+      display: inline;
+      &:after{
+        content: "\00b7";
+        margin-left: 8px;
+      }
+      &:not(:first-child){
+        margin-left: 8px;
+      }
+      &:last-of-type:after{
+        content: none;
+      }
+    }
+  }
+  &__tags{
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+
+    li{
+      display: inline;
+      padding: 8px 10px;
+      background-color: $grayish-cyan;
+      color: $desaturated-dark-cyan;
+      font-weight: 700;
+      margin-left: 16px;
+      margin-right: 16px;
+      &:not(&:first-of-type){
+        margin-left: 0;
+      }
+      &:nth-child(n +4){
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+.chip{
+  color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: .4em .6em;
+  border-radius: 10rem;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  margin-right: 6px;
+  &--new{
+    background-color: $desaturated-dark-cyan;
+  }
+  &--featured{
+    background-color: $darker-greyish-cyan;
+  }
+}
+.position{
+  color: $darker-greyish-cyan;
+}
