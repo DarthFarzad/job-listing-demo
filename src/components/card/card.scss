@@ -63,13 +63,12 @@
       background-color: $grayish-cyan;
       color: $desaturated-dark-cyan;
       font-weight: 700;
-      margin-left: 16px;
       margin-right: 16px;
-      &:not(&:first-of-type){
-        margin-left: 0;
-      }
-      &:nth-child(n +4){
-        margin-top: 16px;
+      margin-left: 0;
+      margin-bottom: 16px;
+      &:hover{
+        background-color: $darker-greyish-cyan;
+        color: white;
       }
     }
   }
@@ -97,4 +96,7 @@
 }
 .position{
   color: $darker-greyish-cyan;
+  &:hover{
+    cursor: pointer;
+  }
 }
