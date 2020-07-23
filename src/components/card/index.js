@@ -5,9 +5,7 @@ import './card.scss';
 
 const Card = (props) => {
     const [data, dispatch] = useContext(Context);
-    const handleFilter = (payload) => {
-        dispatch({ type: TOGGLE_FILTER, payload });
-    };
+    const handleFilter = payload => dispatch({ type: TOGGLE_FILTER, payload });
 
     const { company,logo, featured, position, role, level, postedAt, contract, location, languages, tools} = props
     const isNew = props.new && <span className="chip chip--new">New!</span>;

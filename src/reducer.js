@@ -14,6 +14,7 @@ export const reducer = (state, { type, payload }) =>{
                     job.tools.some(tool=> filters.includes(tool))) : data;
             return {...state, jobs, filters};
         case CLEAR_FILTER:
+            return initialState;
         default:
             return state;
     }
