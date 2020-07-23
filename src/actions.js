@@ -1,0 +1,2 @@
+export const TOGGLE_FILTER = "TOGGLE_FILTER";
+export const CLEAR_FILTER = "CLEAR_FILTER";

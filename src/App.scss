@@ -4,6 +4,22 @@
 @import 'scss/typography';
 
 .container{
-  background-color: $light-grayish-cyan;
   padding: 1rem;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 576px) {
+      max-width: 540px;
+  }
+}
+.bg--light-gray{
+  background-color: $light-grayish-cyan;
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  article{
+    margin-bottom: 16px;
+  }
 }

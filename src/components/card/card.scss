@@ -2,7 +2,7 @@
 .card{
   border-radius: 5px;
   padding: 16px;
-  padding-top: 25px;
+  padding-top: 36px;
   margin-top: 25px;
   position: relative;
   background-color: #fff;
@@ -40,6 +40,7 @@
       display: inline;
       &:after{
         content: "\00b7";
+        font-weight: 700;
         margin-left: 8px;
       }
       &:not(:first-child){
