@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useReducer } from 'react';
+import {reducer, initialState } from './reducer';
+import './App.scss';
+import Header from "./components/header";
+import Filters from './components/filters';
+import Jobs from "./containers/jobs";
+import Footer from './components/footer';
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Context.Provider value={[state, dispatch]}>
+          <Header />
+          <section className="container bg--light-gray">
+              <Filters />
+              <Jobs />
+          </section>
+          <Footer/>
+      </Context.Provider>
   );
 }
+
+export const Context = createContext(initialState);
 
 export default App;

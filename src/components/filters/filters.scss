@@ -1,0 +1,43 @@
+@import "../../scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.filter{
+  background: white;
+  border-radius: 5px;
+  position: relative;
+  margin-top: -3rem;
+  margin-bottom: 3rem;
+  padding: .5rem 1rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+
+  @include media-breakpoint-up(lg){
+    grid-template-columns: 1fr 100px;
+  };
+
+  &__items{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__clear-button{
+    text-transform: capitalize;
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: $dark-greyish-cyan;
+    &:not(href){
+      color: $dark-greyish-cyan;
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+        color: $desaturated-dark-cyan;
+      }
+    }
+
+    &:active, &:visited{
+      color: $dark-greyish-cyan;
+    }
+  }
+}

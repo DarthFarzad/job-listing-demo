@@ -1,0 +1,148 @@
+@import "../../scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+.card{
+  border-radius: 5px;
+  padding: 16px;
+  padding-top: 36px;
+  margin-top: 25px;
+  position: relative;
+  background-color: #fff;
+
+  @include media-breakpoint-up(lg){
+    display: grid;
+    grid-template-areas: 'image heading .' 'image position tags' 'image info .';
+    grid-template-columns: 72px 1fr 2fr;
+    grid-template-rows: repeat(3, 24px);
+    row-gap: 8px;
+    column-gap: 16px;
+  }
+
+  &[data-featured="true"]{
+    border-left-color: $desaturated-dark-cyan;
+    border-left-width: 5px;
+    border-left-style: solid;
+  }
+  img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 16px;
+    //breakpoint change all styles
+    @include media-breakpoint-up(lg){
+      grid-area: image;
+      position: initial;
+      height: 72px;
+      width: auto;
+      align-self: center;
+      justify-self: center;
+    }
+  }
+  &__heading{
+    font-size: 1rem;
+    font-weight: 700;
+    color: $desaturated-dark-cyan;
+    text-transform: capitalize; //fallback for stupid text
+
+    @include media-breakpoint-up(lg){
+      grid-area: heading;
+      margin: 0;
+    }
+  }
+
+  &__information{
+    color: $dark-greyish-cyan;
+    list-style: none;
+    padding: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $dark-greyish-cyan;
+
+    @include media-breakpoint-up(lg){
+      grid-area: info;
+      border-bottom: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li{
+      display: inline;
+      &:after{
+        content: "\00b7";
+        font-weight: 700;
+        margin-left: 8px;
+      }
+      &:not(:first-child){
+        margin-left: 8px;
+      }
+      &:last-of-type:after{
+        content: none;
+      }
+    }
+  }
+  &__tags{
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+
+    @include media-breakpoint-up(lg){
+      grid-area: tags;
+      justify-self: right;
+    }
+
+    li{
+      display: inline;
+      padding: 8px 10px;
+      background-color: $grayish-cyan;
+      color: $desaturated-dark-cyan;
+      font-weight: 700;
+      margin-right: 16px;
+      margin-left: 0;
+      margin-bottom: 16px;
+      border-radius: .25rem;
+      &:hover{
+        background-color: $darker-greyish-cyan;
+        color: white;
+        cursor: pointer;
+      }
+      @include media-breakpoint-up(lg){
+        font-size: .8rem;
+        padding: 3px 10px;
+        margin-bottom: 0;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.chip{
+  color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: .4em .6em;
+  border-radius: 10rem;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  margin-right: 6px;
+  &--new{
+    background-color: $desaturated-dark-cyan;
+  }
+  &--featured{
+    background-color: $darker-greyish-cyan;
+  }
+}
+.position{
+  color: $darker-greyish-cyan;
+  @include media-breakpoint-up(lg){
+    grid-area: position;
+    margin: 0;
+  }
+  &:hover{
+    cursor: pointer;
+    color: $desaturated-dark-cyan;
+  }
+}
