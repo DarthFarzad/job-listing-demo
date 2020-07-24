@@ -11,10 +11,10 @@ function App() {
   return (
       <Context.Provider value={[state, dispatch]}>
           <Header />
-          <section className="container bg--light-gray">
+          <div className="container bg--light-gray">
               <Filters />
               <Jobs />
-          </section>
+          </div>
           <Footer/>
       </Context.Provider>
   );
