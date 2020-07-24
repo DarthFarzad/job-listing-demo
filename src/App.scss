@@ -6,6 +6,7 @@
 @import "~bootstrap/scss/mixins/grid";
 
 .container{
+  position: relative;
   @include make-container();
   @include make-container-max-widths();
 }
@@ -14,8 +15,12 @@
   background-color: $light-grayish-cyan;
 }
 .list{
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
+  &[data-filtered="true"] {
+    padding-top: 2rem;
+  }
   article{
     margin-bottom: 16px;
   }
