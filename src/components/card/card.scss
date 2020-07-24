@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
 .card{
   border-radius: 5px;
   padding: 16px;
@@ -7,7 +8,14 @@
   position: relative;
   background-color: #fff;
 
-  //breakpoint change layout
+  @include media-breakpoint-up(lg){
+    display: grid;
+    grid-template-areas: 'image heading .' 'image position tags' 'image info .';
+    grid-template-columns: 72px 1fr 2fr;
+    grid-template-rows: repeat(3, 24px);
+    row-gap: 8px;
+    column-gap: 16px;
+  }
 
   &[data-featured="true"]{
     border-left-color: $desaturated-dark-cyan;
@@ -21,12 +29,25 @@
     top: -25px;
     left: 16px;
     //breakpoint change all styles
+    @include media-breakpoint-up(lg){
+      grid-area: image;
+      position: initial;
+      height: 72px;
+      width: auto;
+      align-self: center;
+      justify-self: center;
+    }
   }
   &__heading{
     font-size: 1rem;
     font-weight: 700;
     color: $desaturated-dark-cyan;
     text-transform: capitalize; //fallback for stupid text
+
+    @include media-breakpoint-up(lg){
+      grid-area: heading;
+      margin: 0;
+    }
   }
 
   &__information{
@@ -35,6 +56,13 @@
     padding: 0;
     padding-bottom: 1rem;
     border-bottom: 1px solid $dark-greyish-cyan;
+
+    @include media-breakpoint-up(lg){
+      grid-area: info;
+      border-bottom: none;
+      padding: 0;
+      margin: 0;
+    }
 
     li{
       display: inline;
@@ -57,6 +85,11 @@
     display: inline-flex;
     flex-wrap: wrap;
 
+    @include media-breakpoint-up(lg){
+      grid-area: tags;
+      justify-self: right;
+    }
+
     li{
       display: inline;
       padding: 8px 10px;
@@ -66,9 +99,17 @@
       margin-right: 16px;
       margin-left: 0;
       margin-bottom: 16px;
+      border-radius: .25rem;
       &:hover{
         background-color: $darker-greyish-cyan;
         color: white;
+        cursor: pointer;
+      }
+      @include media-breakpoint-up(lg){
+        font-size: .8rem;
+        padding: 3px 10px;
+        margin-bottom: 0;
+        height: 24px;
       }
     }
   }
@@ -96,7 +137,12 @@
 }
 .position{
   color: $darker-greyish-cyan;
+  @include media-breakpoint-up(lg){
+    grid-area: position;
+    margin: 0;
+  }
   &:hover{
     cursor: pointer;
+    color: $desaturated-dark-cyan;
   }
 }

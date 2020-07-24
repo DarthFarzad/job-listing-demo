@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
 
 .filter{
   background: white;
@@ -9,6 +10,10 @@
   padding: .5rem 1rem;
   display: grid;
   grid-template-columns: 3fr 1fr;
+
+  @include media-breakpoint-up(lg){
+    grid-template-columns: 1fr 100px;
+  };
 
   &__items{
     display: flex;
@@ -24,11 +29,13 @@
     color: $dark-greyish-cyan;
     &:not(href){
       color: $dark-greyish-cyan;
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+        color: $desaturated-dark-cyan;
+      }
     }
-    &:hover{
-      cursor: pointer;
-      text-decoration: underline;
-    }
+
     &:active, &:visited{
       color: $dark-greyish-cyan;
     }

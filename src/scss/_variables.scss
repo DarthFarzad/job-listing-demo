@@ -5,3 +5,10 @@ $dark-greyish-cyan      : #7b8e8e;
 $darker-greyish-cyan    : #2c3a3a;
 
 $base-font-size: 16px;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 1440px,
+) !default;

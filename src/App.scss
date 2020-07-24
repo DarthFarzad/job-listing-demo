@@ -2,17 +2,14 @@
 @import "~bootstrap/scss/utilities/display";
 @import 'scss/variables';
 @import 'scss/typography';
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/grid";
 
 .container{
-  padding: 1rem;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-
-  @media (min-width: 576px) {
-      max-width: 540px;
-  }
+  @include make-container();
+  @include make-container-max-widths();
 }
+
 .bg--light-gray{
   background-color: $light-grayish-cyan;
 }
@@ -21,5 +18,16 @@
   flex-direction: column;
   article{
     margin-bottom: 16px;
+  }
+}
+footer{
+  font-size: 12px;
+  text-align: center;
+  padding: 1rem;
+  background-color: $darker-greyish-cyan;
+  color: white;
+  a{
+    color: $desaturated-dark-cyan;
+    font-weight: 700;
   }
 }
